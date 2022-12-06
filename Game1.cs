@@ -87,7 +87,11 @@ namespace Monogame_pt_3
             if (screen == Screen.Intro)
             {
                 if (mouseState.LeftButton == ButtonState.Pressed)
+                {
                     screen = Screen.Tribbleyard;
+                    tribsound.Play();
+
+                }
             }
             else if (screen == Screen.Tribbleyard) 
             {
@@ -118,6 +122,8 @@ namespace Monogame_pt_3
                 brownrect.Y += (int)brownSpeed.Y;
                 if (brownrect.Bottom > _graphics.PreferredBackBufferHeight || brownrect.Y < 0)
                     brownSpeed *= -1;
+                
+                
             }
            
 
@@ -135,7 +141,7 @@ namespace Monogame_pt_3
             if (screen == Screen.Intro)
             {
                 _spriteBatch.Draw(introtexture, introRect, Color.White);
-                _spriteBatch.DrawString(font, "right click to ",new Vector2 (200,50),Color.Violet);
+                _spriteBatch.DrawString(font, "left click to ",new Vector2 (200,50),Color.Violet);
             }
             else
             {
